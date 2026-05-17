@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Bash(pnpm *)",
+      "Bash(git *)"
+    ],
+    "deny": [
+      "Write(.env*)",
+      "Write(*.local.*)",
+      "Read(node_modules/**)",
+      "Edit(node_modules/**)",
+      "Write(node_modules/**)"
+    ]
+  }
+}
