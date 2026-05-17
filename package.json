@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/build-og.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "og:build": "node scripts/build-og.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -46,6 +48,7 @@
     "globals": "^16.5.0",
     "playwright": "^1.57.0",
     "prop-types": "^15.8.1",
+    "sharp": "^0.33.5",
     "storybook": "^10.2.10",
     "vitest": "^4.0.14"
   },

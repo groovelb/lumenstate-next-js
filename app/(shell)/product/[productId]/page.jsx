@@ -8,12 +8,47 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { productId } = await params;
   const product = products.find((p) => p.id === Number(productId));
+
   if (!product) {
-    return { title: 'Product — Lumenstate' };
+    return {
+      title: 'Product',
+      description: 'Light defines the space.',
+    };
   }
+
+  const title = product.title;
+  const description = product.description ?? product.tagline ?? 'Light defines the space.';
+  const url = `/product/${product.id}`;
+  const ogImage = `/og/product/${product.id}.jpg`;
+
   return {
-    title: `${product.title} — Lumenstate`,
-    description: product.tagline ?? 'Light defines the space.',
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: 'website',
+      siteName: 'Lumenstate',
+      title: `${title} — Lumenstate`,
+      description,
+      url,
+      locale: 'ko_KR',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${title} — Lumenstate`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} — Lumenstate`,
+      description,
+      images: [ogImage],
+    },
   };
 }
 
