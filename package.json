@@ -52,5 +52,5 @@
     "storybook": "^10.2.10",
     "vitest": "^4.0.14"
   },
-  "packageManager": "pnpm@9.1.0+sha1.217063ce3fcbf44f3051666f38b810f1ddefee4a"
+  "packageManager": "pnpm@10.11.0"
 }
